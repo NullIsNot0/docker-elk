@@ -6,5 +6,7 @@ sed -i "s/elasticsearch.password: changeme/elasticsearch.password: ${KIBANA_PASS
 
 sed -i "s/xpack.monitoring.elasticsearch.username: elastic/xpack.monitoring.elasticsearch.username: logstash_system/g" ./logstash/config/logstash.yml
 sed -i "s/xpack.monitoring.elasticsearch.password: changeme/xpack.monitoring.elasticsearch.password: ${LOGSTASH_SYSTEM_PASSWORD}/g" ./logstash/config/logstash.yml
+sed -i "s/password => \"changeme\"/password => \"${ELASTIC_PASSWORD}\"/g" ./logstash/pipeline/logstash.yml
 
-echo "Passwords changed successfully. Now run 'docker-compose restart kibana logstash'."
+
+printf "\nPasswords changed successfully.\nNow run 'docker-compose restart kibana logstash'.\n\n"
