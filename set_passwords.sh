@@ -1,5 +1,5 @@
 #!/bin/bash
-./credentials.txt
+. ./credentials.txt
 
 sed -i "s/elasticsearch.username: elastic/elasticsearch.username: kibana/g" ./kibana/config/kibana.yml
 sed -i "s/elasticsearch.password: changeme/elasticsearch.password: ${KIBANA_PASSWORD}/g" ./kibana/config/kibana.yml
